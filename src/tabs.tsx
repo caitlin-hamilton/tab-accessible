@@ -39,7 +39,7 @@ const Tabs = () => {
         }
         document.addEventListener('keydown', doSomething)
         
-    }, [tabValues[0].ref.current, tabValues[1].ref.current, tabValues[2].ref.current, selectedTab])
+    })
     return (   
          <div role="tablist">
             <Tab
