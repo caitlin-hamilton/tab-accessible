@@ -23,18 +23,12 @@ const Tabs = () => {
     useEffect(() => {
         const doSomething = (event: KeyboardEvent) => {
             if(event.key === 'ArrowRight' && selectedTab < 2){
-                let ref1 = tabValues[selectedTab + 1].ref.current
-                if(ref1 !== null){
-                    ref1.focus()
+                    tabValues[selectedTab + 1].ref.current?.focus()
                     setSelectedTab(selectedTab + 1)
-                }
             } 
             else if(event.key === 'ArrowLeft' && selectedTab > 0){
-                let ref1 = tabValues[selectedTab - 1].ref.current
-                if(ref1){
-                    ref1.focus()
-                    setSelectedTab(selectedTab - 1)
-                }
+                tabValues[selectedTab - 1].ref.current?.focus()
+                setSelectedTab(selectedTab - 1)
             }
         }
         document.addEventListener('keydown', doSomething)
