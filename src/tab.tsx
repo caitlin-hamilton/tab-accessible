@@ -6,13 +6,14 @@ interface Props {
     selectedTab: number
     title: string
     handleChange: (index: number) => void
-    tabRef: RefObject<HTMLButtonElement>
+    tabRef: RefObject<HTMLDivElement>
+    children: JSX.Element
 }
-const Tab = ({ id, index, selectedTab, title, handleChange, tabRef } : Props) => {
+const Tab = ({index, selectedTab, title, handleChange, tabRef, children } : Props) => {
     return (
 <div>
-      <button role="tab" onClick={() => handleChange(index)} tabIndex={selectedTab === index ? 0 : -1} ref ={tabRef}>{title}</button>
-      {selectedTab === index && <p>{title}</p>}
+      <button role="tab" onClick={() => handleChange(index)} onKeyDown={(keyEvent) => { if(keyEvent.key === 'Enter'){ handleChange(index)}}}>{title}</button>
+      {selectedTab === index && (<div tabIndex={-1} ref={tabRef}>{children}</div>)}
       </div>
       )
   }
