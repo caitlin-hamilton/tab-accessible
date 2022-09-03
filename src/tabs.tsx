@@ -24,11 +24,11 @@ const Tabs = () => {
         const doSomething = (event: KeyboardEvent) => {
             if(event.key === 'ArrowRight' && selectedTab < 2){
                     tabValues[selectedTab + 1].ref.current?.focus()
-                    setSelectedTab(selectedTab + 1)
+                    //setSelectedTab(selectedTab + 1)
             } 
             else if(event.key === 'ArrowLeft' && selectedTab > 0){
                 tabValues[selectedTab - 1].ref.current?.focus()
-                setSelectedTab(selectedTab - 1)
+                //setSelectedTab(selectedTab - 1)
             }
         }
         document.addEventListener('keydown', doSomething)
